@@ -41,6 +41,15 @@ class PreFlightState : public StateInterface {
         const StateID getStateID() const override { return StateID::PRE_FLIGHT_STATE; }
 };
 
+class DisArmState : public StateInterface {
+
+    public:
+        StateID update(StateContext& context) override;
+        void enter(StateContext& context) override;
+        void exit(StateContext& context) override;
+        const StateID getStateID() const override { return StateID::DISARM_STATE; }
+};
+
 class FailSafeState : public StateInterface {
 
     public:

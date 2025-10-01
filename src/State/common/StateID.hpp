@@ -14,7 +14,8 @@ enum class StateID : uint8_t {
     CLIMBING_TURN_STATE,
     FIGURE_EIGHT_STATE,
     AUTO_FLIGHT_STATE,
-    FAIL_SAFE_STATE
+    FAIL_SAFE_STATE,
+    DISARM_STATE
 };
 
 #endif // STATE_ID_HPP
