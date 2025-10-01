@@ -1,0 +1,20 @@
+#ifndef STATE_ID_HPP
+#define STATE_ID_HPP
+
+#include <cstdint>
+
+// 状態IDの定義
+enum class StateID : uint8_t {
+
+    INIT_STATE,
+    CALIBRATION_STATE,
+    PRE_FLIGHT_STATE,
+    MANUAL_FLIGHT_STATE,
+    LEVEL_TURN_STATE,
+    CLIMBING_TURN_STATE,
+    FIGURE_EIGHT_STATE,
+    AUTO_FLIGHT_STATE,
+    FAIL_SAFE_STATE
+};
+
+#endif // STATE_ID_HPP
