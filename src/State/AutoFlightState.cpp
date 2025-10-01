@@ -9,3 +9,12 @@ void AutoFlightState::flightControl(StateContext& context) {
 
     // この後の共通処理で、各軸のPIDの結果と高度の結果からPWM信号が生成される
 }
+
+StateID AutoFlightState::isTransitionState(StateContext& context) {
+
+    // 自動操縦状態からの遷移条件を確認し、必要に応じて次の状態IDを返す
+    // 例えば、手動操縦モードへの切り替え条件やフェイルセーフ条件など
+
+    // 条件が満たされない場合は、現在の状態IDを返す
+    return StateID::AUTO_FLIGHT_STATE;
+}

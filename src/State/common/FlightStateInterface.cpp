@@ -8,6 +8,12 @@ void FlightStateInterface::enter(StateContext& context) {
 
 StateID FlightStateInterface::update(StateContext& context) {
 
+    // 状態遷移の確認（現在の状態ではない場合は、遷移を依頼する）
+    if(isTransitionState(context) != getStateID()){
+
+        return isTransitionState(context);
+    }
+
     // IMUデータの取得
     getImuData(context);
 

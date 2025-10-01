@@ -56,6 +56,7 @@ class ManualFlightState : public FlightStateInterface {
     public:
         
         void flightControl(StateContext& context) override;
+        StateID isTransitionState(StateContext& context) override;
         const StateID getStateID() const override { return StateID::MANUAL_FLIGHT_STATE; }
 };
 
@@ -65,6 +66,7 @@ class LevelTurnState : public FlightStateInterface {
     public:
         
         void flightControl(StateContext& context) override;
+        StateID isTransitionState(StateContext& context) override;
         const StateID getStateID() const override { return StateID::LEVEL_TURN_STATE; }
 };
 
@@ -74,6 +76,7 @@ class ClimbingTurnState : public FlightStateInterface {
     public:
         
         void flightControl(StateContext& context) override;
+        StateID isTransitionState(StateContext& context) override;
         const StateID getStateID() const override { return StateID::CLIMBING_TURN_STATE; }
 };
 
@@ -83,6 +86,7 @@ class FigureEightState : public FlightStateInterface {
     public:
         
         void flightControl(StateContext& context) override;
+        StateID isTransitionState(StateContext& context) override;
         const StateID getStateID() const override { return StateID::FIGURE_EIGHT_STATE; }
 };
 
@@ -92,6 +96,7 @@ class AutoFlightState : public FlightStateInterface {
     public:
         
         void flightControl(StateContext& context) override;
+        StateID isTransitionState(StateContext& context) override;
         const StateID getStateID() const override { return StateID::AUTO_FLIGHT_STATE; }
 };
 

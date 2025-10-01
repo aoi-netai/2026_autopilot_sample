@@ -29,6 +29,7 @@ class FlightStateInterface: public StateInterface {
     protected:
 
         virtual void flightControl(StateContext& context) = 0;
+        virtual StateID isTransitionState(StateContext& context) = 0;
 
     private:
         void getImuData(StateContext& context);
