@@ -9,9 +9,9 @@ void DisArmState::enter(StateContext& context) {
 StateID DisArmState::update(StateContext& context) {
 
     // DisArm状態のメインループ処理
-    // 例えば、非武装条件の確認や安全な状態の維持など
+    // 例えば、DisArm状態の確認や安全な状態の維持など
 
-    // 非武装状態が解除されたら、次の状態に遷移
+    // DisArm状態が解除されたら、次の状態に遷移
     return StateID::PRE_FLIGHT_STATE;
 }
 
