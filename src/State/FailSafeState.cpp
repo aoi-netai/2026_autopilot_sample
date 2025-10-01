@@ -13,7 +13,7 @@ StateID FailSafeState::update(StateContext& context) {
 
     // フェイルセーフ状態が解除されたら、次の状態に遷移
     // 解除されたら、ダメな気がする
-    return StateID::PRE_FLIGHT_STATE;
+    return StateID::FAIL_SAFE_STATE;
 }
 
 void FailSafeState::exit(StateContext& context) {

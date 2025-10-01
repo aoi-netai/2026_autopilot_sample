@@ -14,7 +14,17 @@ StateID InitState::update(StateContext& context) {
 
     // エラーが出たらエラーメッセージとともに早期リターンをする
 
+    // -----サンプルコード 10回ループしたら次の状態に遷移する-----//
+    context.loop_count++;
+
+    if(context.loop_count < 10) {
+
+        // 10回ループするまで同じ状態のまま
+        return StateID::INIT_STATE;
+    }
+
     // 初期化が完了したら、次の状態に遷移
+    context.loop_count = 0; // リセット
     return StateID::CALIBRATION_STATE;
 }
 

@@ -1,4 +1,5 @@
 #include "StateManager.hpp"
+#include <cstdio>
 #include "../State/common/StateHeaders.hpp"
 
 // コンストラクタ
@@ -21,7 +22,11 @@ void StateManager::ChangeState(std::unique_ptr<StateInterface> new_state) {
     if (current_state) {
 
         current_state->exit(state_context);
+        
+        printf("[StateManager] StateExit: %d\n", static_cast<int>(current_state->getStateID()));
     }
+
+
 
     // 新しい状態クラスのオブジェクトのポインタを代入
     current_state = std::move(new_state);
@@ -32,7 +37,7 @@ void StateManager::ChangeState(std::unique_ptr<StateInterface> new_state) {
         current_state->enter(state_context);
 
         // 状態遷移メッセージの出力(デバッグ用)
-        printf("[StateManager] StateChange: %d\n", static_cast<int>(current_state->getStateID()));
+        printf("[StateManager] StateEnter: %d\n", static_cast<int>(current_state->getStateID()));
     }
 }
 
@@ -46,6 +51,7 @@ void StateManager::Update() {
 
         // 状態遷移が発生した場合
         if (next_state != current_state->getStateID()) {
+            
             // 状態を変更
             ChangeState(CreateState(next_state));
         }

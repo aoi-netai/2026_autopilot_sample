@@ -10,6 +10,7 @@
 #include "StateInterface.hpp"
 #include "FlightStateInterface.hpp"
 #include "StateID.hpp"
+#include <cstdio>
 
 // 電源起動時の初期化状態
 class InitState : public StateInterface {

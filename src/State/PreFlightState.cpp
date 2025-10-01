@@ -13,6 +13,17 @@ StateID PreFlightState::update(StateContext& context) {
 
     // 離陸条件が満たされたら、次の状態に遷移
     // 自動操縦ボタンが入っていたら、直接自動操縦（投下するミッション）に遷移する
+
+    // -----サンプルコード 10回ループしたら次の状態に遷移する-----//
+    context.loop_count++;
+
+    if(context.loop_count < 10) {
+
+        // 10回ループするまで同じ状態のまま
+        return StateID::PRE_FLIGHT_STATE;
+    }
+    
+    context.loop_count = 0; // リセット
     return StateID::MANUAL_FLIGHT_STATE;
 }
 

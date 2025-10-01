@@ -1,5 +1,5 @@
 #include "FlightStateInterface.hpp"
-
+#include <cstdio>
 void FlightStateInterface::enter(StateContext& context) {
 
     // 飛行状態に入るときの初期化処理
@@ -8,10 +8,11 @@ void FlightStateInterface::enter(StateContext& context) {
 
 StateID FlightStateInterface::update(StateContext& context) {
 
-    // 状態遷移の確認（現在の状態ではない場合は、遷移を依頼する）
-    if(isTransitionState(context) != getStateID()){
-
-        return isTransitionState(context);
+    // 状態遷移の確認（isTransitionState は副作用を持つ可能性があるため
+    // 一度だけ呼び出して結果を使う）
+    StateID next = isTransitionState(context);
+    if (next != getStateID()) {
+        return next;
     }
 
     // IMUデータの取得
@@ -25,6 +26,10 @@ StateID FlightStateInterface::update(StateContext& context) {
 
     // PWM信号の生成
     pwmGenerate(context);
+
+    uint8_t static count = 0;
+    if(count++ % 10 == 0)
+    printf("FlightStateCommon:\n");
 
     // 現在の状態IDを返す（状態遷移は派生クラスで実装）
     return getStateID();
