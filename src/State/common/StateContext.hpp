@@ -15,8 +15,8 @@ struct SbusData {
 // 状態間で共有する変数やインスタンス
 struct StateContext {
 
-    uint32_t loop_count = 0; // 各状態で使用するカウンター
-    
+    uint32_t loop_count = 0; // デバック用 実装の際には各状態のメンバーで持ってください
+
     float accel[3] = {};
     float gyro[3] = {};
     float mag[3] = {};

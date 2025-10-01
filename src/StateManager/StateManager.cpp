@@ -23,6 +23,7 @@ void StateManager::ChangeState(std::unique_ptr<StateInterface> new_state) {
 
         current_state->exit(state_context);
         
+        // 状態遷移メッセージの出力(デバッグ用)
         printf("[StateManager] StateExit: %d\n", static_cast<int>(current_state->getStateID()));
     }
 
@@ -91,6 +92,6 @@ std::unique_ptr<StateInterface> StateManager::CreateState(StateID state_id) {
             return std::make_unique<FailSafeState>();
 
         default:
-            return nullptr;
+            return std::make_unique<FailSafeState>();
     }
 }
