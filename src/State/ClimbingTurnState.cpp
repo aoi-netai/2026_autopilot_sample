@@ -1,6 +1,8 @@
 #include "common/StateHeaders.hpp"
 
-// NOTE: File renamed from ClibingTurnState.cpp to ClimbingTurnState.cpp (spelling fix)
+// まずisTransitionStateで状態遷移の条件を確認し、必要に応じて次の状態IDを返す
+// そのあとでセンサーデータの取得、姿勢と位置の計算をしたあとflightControlを呼び出す
+// 最後にPWM信号の生成を行う
 
 void ClimbingTurnState::flightControl(StateContext& context) {
 

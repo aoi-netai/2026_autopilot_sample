@@ -12,6 +12,7 @@ StateID FlightStateInterface::update(StateContext& context) {
     // 一度だけ呼び出して結果を使う）
     StateID next = isTransitionState(context);
     if (next != getStateID()) {
+        
         return next;
     }
 
